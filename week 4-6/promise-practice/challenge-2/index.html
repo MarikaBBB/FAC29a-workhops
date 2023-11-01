@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Challenge 2 | Promise practice</title>
+  </head>
+  <body>
+    <h1>Open the console</h1>
+    <script>
+      // write your code here
+      fetch("https://pokeapi.co/api/v2/pokemon/pikachu")
+        .then((response) => response.json())
+        .then((pikachu) => fetch(pikachu.species.url))
+        .then((response) => response.json())
+        .then((species) => fetch(species.shape.url))
+        .then((response) => response.json())
+        .then((shape) => console.log(shape));
+
+//The main function used here is the fetch function, which is a built-in web API for making network requests.
+// The Fetch Sequence:
+// First Fetch: The code initiates a fetch request to "https://pokeapi.co/api/v2/pokemon/pikachu", which retrieves data about the Pokémon "Pikachu".
+// First .then: After getting the response from the first fetch, the code checks if the response is valid and then converts the response to JSON using response.json().
+// Second .then: Once the response is parsed to JSON, the next .then is executed. This code fetches the species URL from the pikachu data.
+// Third .then: Again, the response from the second fetch is converted to JSON.
+// Fourth .then: After parsing the species data to JSON, the code fetches the shape URL (the shape data for the Pokémon).
+// Fifth .then: As before, the response from this fetch is also converted to JSON.
+// Last .then: Finally, the shape data of the Pokémon is logged to the console.
+// In summary, this code performs a series of chained network requests to the Pokémon API to get data about Pikachu's species and then its shape. 
+// Each successive request is dependent on the data returned from the previous request. 
+// The use of Promises (via the .then chaining) ensures that each request waits for the previous one to complete before moving on to the next step. 
+// The final outcome is that the shape data of Pikachu is printed to the console.
+    </script>
+  </body>
+</html>

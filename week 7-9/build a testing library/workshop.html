@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Learn Testing</title>
+</head>
+<body>
+    <h1>Open the console</h1>
+
+    <script>
+        // the function we're testing
+        function square(x) {
+            return x * x;
+        }
+
+        // const result = square(2);
+        // const expected = 999; 
+        // if (result !== expected) {
+        //     console.error("Failed: expected square(2) to equal 4, but got " + result);
+        // }
+
+        function equal(actual, expected, message) {
+            if (actual === expected) {
+                const defaultMessage = `Expected ${expected} and received ${actual}`;
+                console.info("Pass: " + (message || defaultMessage));
+            } else {
+                const defaultMessage = `Fail: Expected ${expected} but received ${actual} instead`;
+                console.error("Fail: " + (message || defaultMessage));
+            }
+        }
+
+        // const result1 = square(2);
+        // const expected1 = 4;
+        // equal(result1, expected1);
+
+        // const result2 = square(3.5);
+        // const expected2 = 9999; 
+        // equal(result2, expected2);
+
+        function notEqual(actual, expected, message) {
+            if (actual !== expected) {
+                const defaultMessage = `${expected} is different to ${actual}`;
+                console.info("Pass: " + (message || defaultMessage));
+            } else {
+                const defaultMessage = `${expected} is the same as ${actual}`;
+                console.error("Fail: " + (message || defaultMessage));
+            }
+        }
+
+        // const result3 = square(3);
+        // const expected3 = 10;
+        // notEqual(result3, expected3);
+
+        function test(name, testFunction) {
+            console.group(name);
+            testFunction();
+            console.groupEnd();
+        }
+
+        // Testing
+        test("Correctly squares integers", () => {
+            const result = square(2);
+            const expected = 4;
+            equal(result, expected);
+            notEqual(result, 5);
+        });
+
+        test("Correctly squares decimals", () => {
+            const result = square(3.5);
+            const expected = 12.25;
+            equal(result, expected);
+        });
+    </script>
+</body>
+</html>
+

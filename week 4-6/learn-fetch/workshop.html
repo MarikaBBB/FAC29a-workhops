@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Learn Fetch & Promises</title>
+  </head>
+  <body>
+    <h1>Open the console</h1>
+    <script>
+      /* CHALLENGE 1 */
+      //const pokePromise= fetch("https://pokeapi.co/api/v2/pokemon/pikachu");
+      //console.log(pokePromise);
+
+      /* CHALLENGE 2 */
+      //const pokePromise= fetch("https://pokeapi.co/api/v2/pokemon/pikachu");
+      //pokePromise.then((result) => console.log(result));
+
+       /* CHALLENGE 3 */
+//       const pokePromise = fetch("https://pokeapi.co/api/v2/pokemon/pikachu");
+//pokePromise
+// .then((response) => response.json())
+//  .then((pikachu) => console.log(pikachu));
+
+       /* CHALLENGE 4 */
+//       const pokePromise = fetch();
+//pokePromise
+//  .then((response) => response.json())
+//  .then((pikachu) => console.log(pikachu))
+//  .catch((error) => console.log(error));
+   
+
+/* TASK 1 */
+function getUser(username) {
+  const user_url = `https://api.github.com/users/${username}`;
+  return fetch(user_url).then((response) => response.json());
+}
+
+getUser("oliverjam")
+   .then(console.log)
+   .catch(console.error);
+
+
+  /* TASK 2 */
+  function getRepos(user) {
+  return fetch(user.repos_url).then((response) => response.json());
+}
+
+getUser("oliverjam")
+   .then(getRepos)
+   .then(console.log)
+   .catch(console.error);
+
+
+  /* TASK 3 */
+  function getUser(username) {
+    // This function retrieves a user profile from GitHub by a given username
+    return fetch(`https://api.github.com/users/${username}`)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`Failed to fetch user: ${username}`);
+            }
+            return response.json();
+        });
+}
+
+const multipleUsers = ['oliverjam', 'stairsuite'];
+
+Promise.all(multipleUsers.map(getUser))
+  .then(console.log)  // Logs an array containing the profiles of each user
+  .catch(console.error);
+
+
+
+    </script>
+  </body>
+</html>
