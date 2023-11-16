@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="path/to/favicon.ico">
     <title>Pokémon Search</title>
     <style>
         body, html {
@@ -118,7 +119,8 @@
             event.preventDefault();
 
             const formData = new FormData(form);
-            const name = formData.get("pokemon");
+            const name = formData.get("pokemon").toLowerCase(); // Convert to lowercase
+
 
             // Show a loading message
             output.textContent = "Loading...";
