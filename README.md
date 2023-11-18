@@ -23,8 +23,8 @@ All workshops from FAC29 foundation program
 - [x] TDD workshop
 
 #### Week 10-12: Project
-- [ ] Node & npm introduction
-- [ ] Dev tooling
+- [x] Node & npm introduction
+- [x]  Dev tooling
 
 ### Execute Program
 - [x] JavaScript Arrays
