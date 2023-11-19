@@ -1,0 +1,12 @@
+{
+  "name": "fac29a-workshops",
+  "version": "1.0.0",
+  "description": "All workshops from FAC29 foundation program",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
